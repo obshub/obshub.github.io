@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Как пользоваться OBS Studio - инструкция на русском языке</title>
+    <meta name="description"
+        content="Как пользоваться OBS Studio новичку на компьютере. Записывайте экран компьютера просто. Подробное руководство для начинающих. ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path
+                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z">
+            </path>
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z">
+            </path>
+            <path
+                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z">
+            </path>
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path
+                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+            </path>
+        </symbol>
+    </svg>
+
+
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Tenth navbar example">
+            <div class="container">
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a href="/index.html"><img src="img/logo.png" alt="logo fan site obs" width="260px" height="78px"></a>
+
+                <div class="navbar-collapse justify-content-md-center collapse" id="navbarsExample08" style="">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/index.html#download">Скачать</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html#install">Как установить</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/howuse.html">Как пользоваться</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html#source">Сцены, источники</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html#other">для Android</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <div class="container">
+
+
+            <div class="row">
+                <h1 class="h1prog">Как пользоваться OBS Studio - Подробный гайд</h1>
+
+                <p class="text-center">OBS Studio позволяет записывать экранное видео со звуком из разных источников,
+                    сохранять его в файл и/или транслировать в интернет. Также она позволяет вставлять видеопереходы для
+                    переключения между фрагментами видео. Рассмотрим, как настроить и пользоваться OBS Studio в Windows.
+                </p>
+
+
+                <h2>Первичная настройка</h2>
+                <p>При первом запуске выберите, под какой сценарий хотите оптимизировать настройки программы. Это:
+                </p>
+                <ul>
+                    <li>Трансляция видео в сеть (первично), запись видео – вторичная задача.</li>
+                    <li>Запись экранного видео без стрима видеопотока в интернет.</li>
+                    <li>Только виртуальная камера.</li>
+                </ul>
+                <p>Запустить мастер первичной настройки можно в любой момент через пункт меню «Сервис».</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/3.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/3.webp" alt="мастер автоматической настройки obs"></a>
+                        <figcaption>Мастер автоматической настройки</figcaption>
+                    </figure>
+                </div>
+
+                <p> В двух первых случаях выберите разрешение видеороликов и частоту кадров.</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/4.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/4.webp" alt="настройка видео"></a>
+                        <figcaption>Настройка видео</figcaption>
+                    </figure>
+                </div>
+
+                <p>Проверьте параметры ещё раз и примените настройки.</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/5.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/5.webp" alt="настройки obs"></a>
+                        <figcaption>Применение настроек</figcaption>
+                    </figure>
+                </div>
+
+                <h2>Подготовка</h2>
+                <p>После запуска программы откройте её настройки кликом по одноимённой кнопке внизу справа.</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/6.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/6.webp" alt="Интерфейс obs"></a>
+                        <figcaption>Интерфейс OBS Studio</figcaption>
+                    </figure>
+                </div>
+
+                <p>Здесь можете сменить тему оформления, скрыть различные окна для подтверждения действий, которые порой
+                    отвлекают. В разделе «Трансляции» выберите интересующие потоковые сервисы (если нужного нет, в
+                    списке кликните «Показать все» и настройте их: обычно это выбор сервера, указание ключа, ввод логина
+                    с паролем).</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/7.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/7.webp" alt="Настройка трансляции"></a>
+                        <figcaption>Настройка трансляции</figcaption>
+                    </figure>
+                </div>
+                <p>Раздел «Вывод». Задайте параметры входящего видеопотока: битрейт, кодировщик, формат файла, которые
+                    влияют на качество контента, размер файла, нагрузку на процессор. Здесь можете указать количество
+                    аудиодорожек – записать звук из каждого источника на отдельную звуковую дорожку.</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/8.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/8.webp" alt="Настройка вывода видео"></a>
+                        <figcaption>Настройка вывода видео</figcaption>
+                    </figure>
+                </div>
+
+                <p>Формат рекомендуем выбрать MP4, если дорожек аудио несколько – контейнер MKV.
+                    Раздел «Аудио». Здесь можно разве включить нужные источники аудио.
+                    «Видео» – укажите разрешение, тип фильтра масштабирования, частоту кадров.
+                </p>
+
+
+                <p>«Горячие клавиши» – поменяйте комбинации кнопок для управления приложением, рекомендуем добавить
+                    запуск, приостановку, воспроизведение и завершение трансляции / записи, чтобы не делать лишних
+                    кликов.</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/10.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/10.webp" alt="назначение горячих клавиш"></a>
+                        <figcaption>Назначение горячих клавиш</figcaption>
+                    </figure>
+                </div>
+
+
+                <h2>Работа со сценами и источниками</h2>
+                <p>Сцена – грубо говоря, это настроенный проект, например, запись видеоурока или трансляция геймплея.
+                    Для её добавления кликните по плюсику внизу слева и дайте ей название.</p>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/11.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/11.webp" alt="Добавление сцены"></a>
+                        <figcaption>Добавление сцены</figcaption>
+                    </figure>
+                </div>
+
+                <p>
+                    Дальше можете применить к сцене один или несколько настраиваемых фильтров – кликните по иконке
+                    «Открыть фильтры…».
+                </p>
+
+                <p>Щелчком по ключу добавляйте источники видео аналогично после ввода названия. В зависимости от
+                    источника появится окно с дополнительными настройками. При помощи стрелочек расположите их на нужных
+                    слоях для правильного перекрытия. Кликните по контенту левой клавишей, после чего сможете поменять
+                    его размер путём перетаскивания рамки и место положения.
+                </p>
+                <p>Можете применять клавиатуру:</p>
+                <ul>
+                    <li>Ctrl + перетаскивание – отключение привязки.</li>
+                    <li>Alt + перетаскивание границ рамки – обрезка источника.</li>
+                    <li>Ctrl + D – центрирование.</li>
+                    <li>Ctrl + S – растянуть во весь экран.</li>
+                    <li>Ctrl + R – сбросить положение/размеры.</li>
+                </ul>
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/12.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/12.webp" alt="Добавление сцены 2"></a>
+                        <figcaption>Добавление сцены 2</figcaption>
+                    </figure>
+                </div>
+
+                <p> Через контекстное меню источников получите доступ к десяткам дополнительных опций включая наложение
+                    фильтров, преобразование, изменение метода наложения, порядка.</p>
+                <p> Между сценами можно сгладить переходы при помощи пары эффектов.</p>
+                <p> Дальше настройте звук: выберите его источники, отрегулируйте громкость, при необходимости – добавьте
+                    фильтры.</p>
+                <div class="d-flex justify-content-center">
+                    <figure class="f-image medium center">
+                        <a data-fslightbox href="/img/obs/13.webp"><img loading="lazy" class="lazy img-fluid"
+                                src="/img/obs/13.webp" alt="Добавление сцены 3"></a>
+                        <figcaption>Добавление сцены 3</figcaption>
+                    </figure>
+                </div>
+
+                <p>Жмите «Запись» или «Трансляция». Для завершения кликните по той же кнопке или воспользуйтесь заданной
+                    комбинацией клавиш.</p>
+                <p>Видеозаписи ищите в папке «Видео». Открывается в меню «Файл» – «Показать записи».</p>
+
+
+                <h2>Как пользоваться OBS Studio на слабом ПК</h2>
+                <p>Пользователям слабых ПК следует выполнить следующие действия:</p>
+                <ol>
+                    <li>Оптимизировать компьютер: закрыть лишние приложения, обновить все драйверы.
+                        Открыть «Настройки».</li>
+                    <li>Графа «Общие». Включите отображение окон при запуске трансляции.</li>
+                    <li>Раздел «Вывод». В выпадающем списке выберите «Расширенный», «Кодировщик видео» выберите «H.264».
+                        Перед названием может быть производитель видеокарты, HW или HVEC. Это получится, если ваша
+                        графика поддерживает этот кодировщик.
+                    </li>
+                    <li>Если работаете с двумя источниками звука, во вкладке «Запись» переместите галочку в положение
+                        «2».</li>
+                    <li>Графа «Видео». Снизьте разрешение, если это допустимо. Фильтр можно указать «Билинейный». Если
+                        качество вас не устроит – картинка будет размытой, берите следующий по списку.</li>
+                    <li>Число кадров ставьте не более 25.</li>
+                </ol>
+
+                <p>Фильтры и обработчики используйте по минимуму, при возможности откажитесь от масштабирования
+                    картинки.</p>
+
+
+                <div class="d-flex justify-content-center">
+                    <div class="youtube" id="NTfnJ9wZnCg" style="width: 600px; height: 381px;"></div>
+                </div>
+
+                <div class="comment container">
+
+
+                    <div class="mt-1">
+                        <p class="comments-title h2 mb-2"><span class="icon-bubble"></span> Комментарии (5)
+                        </p>
+
+                        <div class="be-comment">
+                            <div class="be-img-comment"> <img src="https://ui-avatars.com/api/?name=Максим"
+                                    class="be-ava-comment" alt="Аватар пользователя Максим"> </div>
+                            <div class="be-comment-content"> <span class="be-comment-name">Максим</span> <span
+                                    class="be-comment-time"> <i class="fa fa-clock-o">12.06.2020</i> </span>
+                                <p class="be-comment-text">Хорошая статья, помогла сделать первую запись экрана.</p>
+                            </div>
+                        </div>
+                        <div class="be-comment">
+                            <div class="be-img-comment"> <img src="https://ui-avatars.com/api/?name=Юлия"
+                                    class="be-ava-comment" alt="Аватар пользователя Юлия"> </div>
+                            <div class="be-comment-content"> <span class="be-comment-name">Юлия</span> <span
+                                    class="be-comment-time"> <i class="fa fa-clock-o">23.03.2021</i> </span>
+                                <p class="be-comment-text">Как наладить трансляцию в OBS чтобы запустить стрим (YouTube,
+                                    Twitch)?</p>
+                            </div>
+                        </div>
+                        <div class="be-comment">
+                            <div class="be-img-comment"> <img src="https://ui-avatars.com/api/?name=Павел"
+                                    class="be-ava-comment" alt="Аватар пользователя Павел"> </div>
+                            <div class="be-comment-content"> <span class="be-comment-name">Павел</span> <span
+                                    class="be-comment-time"> <i class="fa fa-clock-o">17.01.2019</i> </span>
+                                <p class="be-comment-text">Понял как добавить веб камеру))</p>
+                            </div>
+                        </div>
+                        <div class="be-comment">
+                            <div class="be-img-comment"> <img src="https://ui-avatars.com/api/?name=Анна"
+                                    class="be-ava-comment" alt="Аватар пользователя Анна"> </div>
+                            <div class="be-comment-content"> <span class="be-comment-name">Анна</span> <span
+                                    class="be-comment-time"> <i class="fa fa-clock-o">05.11.2022</i> </span>
+                                <p class="be-comment-text">Чтобы добавить заставку в OBS, используйте источник
+                                    "Изображение" и загрузите нужную картинку.</p>
+                            </div>
+                        </div>
+                        <div class="be-comment">
+                            <div class="be-img-comment"> <img src="https://ui-avatars.com/api/?name=Евгений"
+                                    class="be-ava-comment" alt="Аватар пользователя Евгений"> </div>
+                            <div class="be-comment-content"> <span class="be-comment-name">Евгений</span> <span
+                                    class="be-comment-time"> <i class="fa fa-clock-o">29.08.2020</i> </span>
+                                <p class="be-comment-text">Спасибо за разъяснение по работе со сценами.</p>
+                            </div>
+                        </div>
+
+
+
+                        <form action="/" class="form-block">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="form-group fl_icon">
+                                        <div class="icon2"><span class="icon-user"></span></div>
+                                        <input class="form-input" type="text" placeholder="Ваше имя" required="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 fl_icon">
+                                    <div class="form-group fl_icon">
+                                        <div class="icon2"><span class="icon-quotes-left"></span></div>
+                                        <input class="form-input" type="text" placeholder="Ваш email" required="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <textarea class="form-input" required="" placeholder="Сообщение.."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <a class="btn btn-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Отправить</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div><!-- /.row -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p class="modal-title" id="exampleModalLabel">Уведомление</p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Комметарий отправлен на модерацию
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <p>© 2017–2024 OBS Studio</p>
+            <p>Неофициальный фан сайт программы для записи экрана OBS Studio</p>
+            <!--LiveInternet counter--><a href="https://www.liveinternet.ru/click" target="_blank"><img id="licnt92F5"
+                    width="31" height="31" style="border:0" title="LiveInternet"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" alt="" /></a>
+            <script>(function (d, s) {
+                    d.getElementById("licnt92F5").src =
+                    "https://counter.yadro.ru/hit?t38.3;r" + escape(d.referrer) +
+                    ((typeof (s) == "undefined") ? "" : ";s" + s.width + "*" + s.height + "*" +
+                        (s.colorDepth ? s.colorDepth : s.pixelDepth)) + ";u" + escape(d.URL) +
+                    ";h" + escape(d.title.substring(0, 150)) + ";" + Math.random()
+                })
+                    (document, screen)</script><!--/LiveInternet-->
+
+        </footer>
+    </main>
+
+
+    <script>
+        'use strict';
+        function r(f) { /in/.test(document.readyState) ? setTimeout('r(' + f + ')', 9) : f() }
+        r(function () {
+            if (!document.getElementsByClassName) {
+                // Поддержка IE8
+                var getElementsByClassName = function (node, classname) {
+                    var a = [];
+                    var re = new RegExp('(^| )' + classname + '( |$)');
+                    var els = node.getElementsByTagName("*");
+                    for (var i = 0, j = els.length; i < j; i++)
+                        if (re.test(els[i].className)) a.push(els[i]);
+                    return a;
+                }
+                var videos = getElementsByClassName(document.body, "youtube");
+            } else {
+                var videos = document.getElementsByClassName("youtube");
+            }
+            var nb_videos = videos.length;
+            for (var i = 0; i < nb_videos; i++) {
+                // Находим постер для видео, зная ID нашего видео
+                videos[i].style.backgroundImage = 'url(http://i.ytimg.com/vi/' + videos[i].id + '/sddefault.jpg)';
+                // Размещаем над постером кнопку Play, чтобы создать эффект плеера
+                var play = document.createElement("div");
+                play.setAttribute("class", "play");
+                videos[i].appendChild(play);
+                videos[i].onclick = function () {
+                    // Создаем iFrame и сразу начинаем проигрывать видео, т.е. атрибут autoplay у видео в значении 1
+                    var iframe = document.createElement("iframe");
+                    var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
+                    if (this.getAttribute("data-params")) iframe_url += '&' + this.getAttribute("data-params");
+                    iframe.setAttribute("src", iframe_url);
+                    iframe.setAttribute("frameborder", '0');
+                    // Высота и ширина iFrame будет как у элемента-родителя
+                    iframe.style.width = this.style.width;
+                    iframe.style.height = this.style.height;
+                    // Заменяем начальное изображение (постер) на iFrame
+                    this.parentNode.replaceChild(iframe, this);
+                }
+            }
+        });
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/fslightbox.js"></script>
+    <script async="" src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+</body>
+
+</html>
